@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast - Smart Weather</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span>SkyCast</span>
+        </div>
+
+        <p class="menu-title">MENU</p>
+
+        <nav>
+            <a href="#dashboard" class="nav-link active">
+                <i class="fa-solid fa-house"></i> Dashboard
+            </a>
+
+            <a href="#hourly" class="nav-link">
+                <i class="fa-solid fa-clock"></i> Hourly Forecast
+            </a>
+
+            <a href="#weekly" class="nav-link">
+                <i class="fa-solid fa-calendar-days"></i> 7-Day Forecast
+            </a>
+
+            <a href="#air-quality" class="nav-link">
+                <i class="fa-solid fa-wind"></i> Air Quality
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-card">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <h3>Stay Weather Ready</h3>
+                <p>Get smart weather updates every day.</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="dashboard">
+
+        <!-- Header -->
+        <header class="topbar">
+            <div>
+                <h1>Weather Dashboard</h1>
+                <p>Welcome to your personal weather assistant</p>
+            </div>
+
+            <div class="header-actions">
+                <button id="locationBtn" class="icon-btn" title="Use my location">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </button>
+
+                <button id="themeBtn" class="icon-btn" title="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Search -->
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="cityInput"
+                    placeholder="Search city...">
+                <button id="searchBtn">Search</button>
+            </div>
+            <p id="statusMessage">Search for a city to see its weather.</p>
+        </section>
+
+        <!-- Current Weather -->
+        <section class="weather-hero glass-card">
+
+            <div class="weather-info">
+                <span class="section-label">CURRENT WEATHER</span>
+
+                <h2 id="cityName">Lucknow, IN</h2>
+                <p id="currentDate">Loading date...</p>
+
+                <div class="temperature">
+                    <h1 id="temperature">--°</h1>
+                    <img id="weatherIcon" src="" alt="Weather icon">
+                </div>
+
+                <h3 id="weatherDescription">Loading weather...</h3>
+                <p id="feelsLike">Feels like --°C</p>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div>
+                        <span>Humidity</span>
+                        <h3 id="humidity">--%</h3>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fa-solid fa-wind"></i>
+                    <div>
+                        <span>Wind Speed</span>
+                        <h3 id="windSpeed">-- m/s</h3>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <div>
+                        <span>Pressure</span>
+                        <h3 id="pressure">-- hPa</h3>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fa-solid fa-eye"></i>
+                    <div>
+                        <span>Visibility</span>
+                        <h3 id="visibility">-- km</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hourly Forecast -->
+        <section class="section-block" id="hourly">
+            <div class="section-heading">
+                <div>
+                    <h2>Hourly Forecast</h2>
+                    <p>Weather throughout the day</p>
+                </div>
+            </div>
+
+            <div class="hourly-grid" id="hourlyForecast">
+                <p class="loading-text">Loading hourly forecast...</p>
+            </div>
+        </section>
+
+        <!-- Weekly Forecast -->
+        <section class="section-block" id="weekly">
+            <div class="section-heading">
+                <div>
+                    <h2>7-Day Forecast</h2>
+                    <p>Plan your upcoming week</p>
+                </div>
+            </div>
+
+            <div class="weekly-card glass-card" id="weeklyForecast">
+                <p class="loading-text">Loading weekly forecast...</p>
+            </div>
+        </section>
+
+        <!-- Bottom Grid -->
+        <section class="bottom-grid">
+
+            <!-- Air Quality -->
+            <div class="glass-card info-card" id="air-quality">
+                <div class="section-heading">
+                    <div>
+                        <h2>Air Quality</h2>
+                        <p>Current air conditions</p>
+                    </div>
+                    <i class="fa-solid fa-leaf heading-icon"></i>
+                </div>
+
+                <div class="aqi-content">
+                    <h1 id="aqiValue">--</h1>
+                    <span id="aqiStatus">Loading...</span>
+                </div>
+
+                <div class="aqi-bar">
+                    <div id="aqiProgress"></div>
+                </div>
+
+                <p id="aqiDescription">Air quality information will appear here.</p>
+            </div>
+
+            <!-- Smart Suggestions -->
+            <div class="glass-card info-card">
+                <div class="section-heading">
+                    <div>
+                        <h2>Smart Suggestions</h2>
+                        <p>Personalized weather advice</p>
+                    </div>
+                    <i class="fa-solid fa-lightbulb heading-icon"></i>
+                </div>
+
+                <div id="smartSuggestions" class="suggestions">
+                    <p>Weather suggestions will appear here.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <p>© 2026 SkyCast | Smart Weather Application</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
