@@ -584,3 +584,9 @@ body.light-theme {
     color: var(--muted);
     padding: 15px;
 }
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #8985ff;
+    letter-spacing: -0.5px;
+}
